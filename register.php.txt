@@ -1,0 +1,29 @@
+<?php
+  session_start();
+header('location:secondpage.php');
+$con=mysqli_connect('localhost','root',' ');
+mysqli_select_db($con,'sample');
+  
+
+$name=$_POST['name'];
+$email=$_POST['email'];
+$phoneno=$_POST['contactno'];
+$date=$_POST['date'];
+$age=$_POST['age'];
+   
+
+$s="select *from tablename where name='$name'";
+$result=mysqli_num_rows($result);
+
+
+if($num==1)
+{
+echo"username already registered";
+}
+else
+{
+$reg="insert into tablename(name,email,phoneno,date,age) values('$name','$email','$phoneno','$date','$age');
+mysqli_query($con,$reg);
+echo"registration successful"
+}
+?>
